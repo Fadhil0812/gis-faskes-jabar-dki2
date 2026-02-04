@@ -33,6 +33,20 @@ df.loc[mask_jakarta, "provinsi"] = "Daerah Khusus Ibukota Jakarta"
 df.loc[mask_jakarta, "kota_kabupaten"] = "DKI Jakarta"
 
 # =============================
+# STANDARISASI NAMA JENIS FASKES
+# =============================
+mapping_jenis = {
+    "clinic": "Klinik",
+    "hospital": "Rumah Sakit",
+    "doctors": "Dokter Praktik",
+    "pharmacy": "Apotek",
+    "dentist": "Dokter Gigi",
+    "healthcare": "Fasilitas Kesehatan Lainnya"
+}
+
+df["jenis_fasilitas"] = df["jenis_fasilitas"].replace(mapping_jenis)
+
+# =============================
 # SIDEBAR FILTER
 # =============================
 st.sidebar.header("🔎 Filter Data")
